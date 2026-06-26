@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { ArrowRight, Sparkles, Award, Lightbulb, Layers, Wrench, Home, Grid3X3, Building2, Lamp } from "lucide-react";
+import { ArrowRight, Sparkles, Award, Lightbulb, Layers, Wrench, Home, Grid3X3, Building2, Lamp, Italic } from "lucide-react";
 import { PageShell, SectionHeading } from "../components/PageShell";
 import { useDocumentMetadata } from "../hooks/useDocumentMetadata";
 import { homeFeatures, homeCategories, homeGallery, homeTestimonials } from "../data/siteData";
-
-const heroBg =
-  "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1920&q=80";
+import heroBg from "../assets/Home Page Hero Section.png";
 
 const iconMap = { Award, Sparkles, Lightbulb, Layers, Wrench };
 
@@ -51,78 +49,74 @@ export default function HomePage() {
             className="mb-4 h-[2px] w-10 bg-gold"
           />
 
-          {/* ── PARTH HOME DECOR — all same size, left-aligned ── */}
-          <div className="flex flex-col items-start leading-[1.0]">
+          {/* ── PARTH / HOME / DECOR ── */}
+          <div className="flex flex-col items-start">
+            {/* PARTH — spaced sans-serif label */}
             <motion.h1
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="uppercase text-ivory"
+              className="uppercase text-ivory font-display font-bold italic"
               style={{
-                fontSize: "clamp(3.5rem, 10vw, 3.75rem)", lineHeight: 1.0, fontFamily: "'Cormorant Garamond', serif",
-                fontStyle: "italic"
+                fontSize: "clamp(3rem, 12vw, 5.5rem)",
+                lineHeight: 1.0,
+                letterSpacing: "0.02em",
+                textShadow: "0 2px 40px rgba(201,151,43,0.35)",
               }}
             >
-              PARTH
+              Parth
             </motion.h1>
+            {/* HOME — large gold serif */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="uppercase"
+              className="uppercase font-display font-bold italic"
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontStyle: "italic",
-                fontSize: "clamp(3.5rem, 10vw, 3.75rem)",
+                fontSize: "clamp(3rem, 12vw, 5.5rem)",
                 lineHeight: 1.0,
+                letterSpacing: "0.02em",
                 color: "#C9972B",
-                textShadow: "0 2px 30px rgba(201,151,43,0.3)",
+                textShadow: "0 2px 40px rgba(201,151,43,0.35)",
               }}
             >
-              HOME
+              Home
             </motion.div>
+            {/* DECOR — large ivory serif */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="uppercase text-ivory"
+              className="uppercase text-ivory font-display font-bold italic"
               style={{
-                fontSize: "clamp(3.5rem, 10vw, 3.75rem)", lineHeight: 1.0, fontFamily: "'Cormorant Garamond', serif",
-                fontStyle: "italic",
+                fontSize: "clamp(3rem, 12vw, 5.5rem)",
+                lineHeight: 1.0,
+                letterSpacing: "0.02em",
               }}
             >
-              DECOR
+              Decor
             </motion.div>
           </div>
 
-          {/* Subtitle — uniform size, smaller than title */}
-          <motion.div
+          {/* Subtitle — upright serif, with gold italic accent line */}
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45 }}
-            className="mt-5 text-left"
-          >
-            <p className="font-sans font-light text-ivory/90" style={{
-              color: "#ffffff",
+            className="mt-5 text-left text-ivory"
+            style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontStyle: "italic",
               fontWeight: 500,
-              fontSize: "clamp(1rem, 3vw, 1.35rem)",
-            }}>
-              Transforming Spaces Into{" "}
-              <span
-                style={{
-                  color: "#C9972B",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontStyle: "italic",
-                  fontWeight: 500,
-                  fontSize: "clamp(1rem, 3vw, 1.35rem)",
-                }}
-              >
-                <p>Timeless Experiences</p>
-              </span>
-            </p>
-          </motion.div>
+              lineHeight: 1.15,
+              fontSize: "clamp(1.5rem, 4.5vw, 2.25rem)",
+            }}
+          >
+            Transforming Spaces Into
+            <br />
+            <span style={{ color: "#C9972B", fontStyle: "italic" }}>
+              Timeless Experiences
+            </span>
+          </motion.p>
 
           {/* Gold divider */}
           <motion.div
@@ -155,7 +149,7 @@ export default function HomePage() {
               className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[11px] font-bold uppercase tracking-[0.22em] text-charcoal transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_30px_rgba(201,151,43,0.5)]"
               style={{ background: "linear-gradient(135deg, #e4b84a 0%, #C9972B 60%, #a8771e 100%)" }}
             >
-              Explore Our Services <ArrowRight size={14} />
+              Explore Our Work <ArrowRight size={14} />
             </Link>
             <Link
               to="/contact"
@@ -244,7 +238,7 @@ export default function HomePage() {
       </section>
 
       {/* CATEGORIES — image strip */}
-      <section className="py-10 md:py-16">
+      {/* <section className="py-10 md:py-16">
         <div className="container-luxury">
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {homeCategories.map((c, i) => (
@@ -277,7 +271,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* GALLERY */}
       {/* <section className="container-luxury py-28 md:py-36">
